@@ -2,29 +2,26 @@ import { useState, useEffect } from 'react';
 import WatchFace from './components/WatchFace';
 
 function App() {
-  const [time, setTime] = useState<{ hours: number; minutes: number; seconds: number; date: number; month: string }>({
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
-    date: 0,
-    month: '',
-  });
+  const getInitialTime = () => {
+    const now = new Date();
+    const months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+    return {
+      hours: now.getHours(),
+      minutes: now.getMinutes(),
+      seconds: now.getSeconds(),
+      date: now.getDate(),
+      month: months[now.getMonth()],
+    };
+  };
+
+  const [time, setTime] = useState(getInitialTime());
 
   useEffect(() => {
     const updateTime = () => {
-      const now = new Date();
-      const months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
-      setTime({
-        hours: now.getHours(),
-        minutes: now.getMinutes(),
-        seconds: now.getSeconds(),
-        date: now.getDate(),
-        month: months[now.getMonth()],
-      });
+      setTime(getInitialTime());
     };
 
-    updateTime();
-    const interval = setInterval(updateTime, 1000);
+    const interval = setInterval(updateTime, 100);
     return () => clearInterval(interval);
   }, []);
 
