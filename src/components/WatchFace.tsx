@@ -85,7 +85,7 @@ export default function WatchFace({ time }: WatchFaceProps) {
               {/* Hour markers with ornaments */}
               {khmerNumerals.map((numeral, i) => {
                 if (i === 0) return null;
-                const angle = ((i - 1) * 30) * (Math.PI / 180);
+                const angle = ((i % 12) * 30) * (Math.PI / 180);
                 const x = Math.sin(angle) * 118;
                 const y = -Math.cos(angle) * 118;
                 return (
