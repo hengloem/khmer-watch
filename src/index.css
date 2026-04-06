@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    font-family: 'Moulpali', cursive;
+}
+
+body>*:not(#root) {
+    display: none !important;
+}
