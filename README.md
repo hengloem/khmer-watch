@@ -1,4 +1,3 @@
-```markdown
 # Angkor Watch Face ⏱️🇰🇭
 
 A stunning, culturally inspired analog watch face component built with **React + TypeScript + Tailwind CSS**, featuring traditional Khmer temple aesthetics and Khmer numerals.
@@ -103,4 +102,3 @@ MIT License – feel free to use this in your personal or commercial projects.
 **Made with ❤️ for Cambodian culture and beautiful design.**
 
 If you like this project, feel free to give it a star ⭐!
-```
